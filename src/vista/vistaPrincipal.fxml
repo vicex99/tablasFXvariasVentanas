@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.VCprincipal">
+   <children>
+      <TableView fx:id="miTabla" layoutX="30.0" layoutY="32.0" prefHeight="266.0" prefWidth="540.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="189.5999755859375" text="nombre" />
+          <TableColumn fx:id="colApe" prefWidth="168.800048828125" text="apellido" />
+            <TableColumn fx:id="colTf" prefWidth="181.5999755859375" text="telefono" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAceptar" layoutX="146.0" layoutY="337.0" mnemonicParsing="false" text="Aceptar" />
+      <Button fx:id="btnBorrar" layoutX="276.0" layoutY="337.0" mnemonicParsing="false" text="Borrar" />
+      <Button fx:id="btnEditar" layoutX="390.0" layoutY="337.0" mnemonicParsing="false" text="Modificar" />
+   </children>
+</AnchorPane>
