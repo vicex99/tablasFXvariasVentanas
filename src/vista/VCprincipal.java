@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class VCprincipal implements Initializable {
@@ -60,5 +62,27 @@ public class VCprincipal implements Initializable {
 	@FXML
 	private void ventanaIniciar() {
 		this.ProgramaPrincipal.mostrarVentanaPrincipal();
+	}
+	
+	
+	public void Borrar() {
+		if(miTabla.getSelectionModel().getSelectedItem()!=null) {
+			miTabla.getItems().remove(miTabla.getSelectionModel().getSelectedItem());
+			miTabla.getSelectionModel().clearSelection();
+			
+		}else {
+			System.out.println("no hay selección");
+			Alert alert = new Alert (AlertType.INFORMATION);
+			alert.setTitle("Error al borrar");
+			alert.setHeaderText("");
+			alert.setContentText("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
+			
+			alert.showAndWait();
+		}
+	}
+
+	public void Nuevo() {
+		
+
 	}
 }
