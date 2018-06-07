@@ -3,12 +3,9 @@ package vista;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Modelo.DataAgenda;
 import Modelo.Persona;
 import application.Main;
 import controlador.ControladorMain;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -19,17 +16,17 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class VCprincipal implements Initializable {
-	
+
 	private ControladorMain CmiMain;
-	
+
 	private Main miMain;
 
 	@FXML
 	private Button btnAceptar;
-	
+
 	@FXML
 	private Button btnEditar;
-	
+
 	@FXML
 	private Button btnBorrar;
 
@@ -38,10 +35,10 @@ public class VCprincipal implements Initializable {
 
 	@FXML
 	private TableColumn<Persona, String> colName;
-	
+
 	@FXML
 	private TableColumn<Persona, String> colApe;
-	
+
 	@FXML
 	private TableColumn<Persona, Integer> colTf;
 
@@ -49,14 +46,14 @@ public class VCprincipal implements Initializable {
 	public void setProgramaPrincipal(Main ProgramaPrincipal) {
 		this.miMain = ProgramaPrincipal;
 	}
-	
-//	public void setDatosTabla(DataAgenda datosTabla) {
-//		this.datosTabla = datosTabla;
-//	}
+
+	// public void setDatosTabla(DataAgenda datosTabla) {
+	// this.datosTabla = datosTabla;
+	// }
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		miTabla.setItems(CmiMain.getData());
+		miTabla.setItems(ControladorMain.getData());
 		colName.setCellValueFactory(new PropertyValueFactory<Persona, String>("Nombre"));
 		colApe.setCellValueFactory(new PropertyValueFactory<Persona, String>("Apellido"));
 		colTf.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("telefono"));
@@ -64,38 +61,35 @@ public class VCprincipal implements Initializable {
 
 	@FXML
 	private void ventanaIniciar() {
-		this.miMain.mostrarVentanaPrincipal();
+		this.miMain.mostrarAgenda();
 	}
-	
-	
+
 	public void Borrar() {
-		if(miTabla.getSelectionModel().getSelectedItem()!=null) {
+		if (miTabla.getSelectionModel().getSelectedItem() != null) {
 			miTabla.getItems().remove(miTabla.getSelectionModel().getSelectedItem());
 			miTabla.getSelectionModel().clearSelection();
-			
-		}else {
+		} else {
 			System.out.println("no hay selección");
-			Alert alert = new Alert (AlertType.INFORMATION);
-			alert.setTitle("Error al borrar");
-			alert.setHeaderText("");
-			alert.setContentText("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
-			
-			alert.showAndWait();
+			errorAlert();
 		}
 	}
-	
+
+	private Alert errorAlert() {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Error al borrar");
+		alert.setHeaderText("");
+		alert.setContentText("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
+
+		alert.showAndWait();
+		return alert;
+	}
+
 	public void editar() {
-		// TODO Auto-generated method stub
-
+		// ControladorMain.setdata(new Persona("pepe", "albondiga", 293648632)); //añade datos no se actualiza
+		miMain.mostrarEditor(new Persona("pepe", "albondiga", 293648632));
 	}
-	
+
 	public void borrar() {
-		// TODO Auto-generated method stub
 
-	}
-	
-	//establece el controlador main que indica los datos
-	public void setCM(ControladorMain m) {
-		CmiMain=m;
 	}
 }

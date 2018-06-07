@@ -1,22 +1,20 @@
 package controlador;
 
 import Modelo.Persona;
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ControladorMain{
+public class ControladorMain {
 
-	private final ObservableList<Persona> data = FXCollections.observableArrayList(
-			new Persona("Javier", "Sanchez", 234534639), 
-			new Persona("Víctor", "Álvarez", 256435734)
-		);
-	
-	public ObservableList<Persona> getData() {
+	private final static ObservableList<Persona> data = FXCollections.observableArrayList(
+			new Persona("Javier", "Sanchez", 234534639), new Persona("Víctor", "Álvarez", 256435734));
+
+	public static ObservableList<Persona> getData() {
 		return data;
 	}
-	
-	private void setdata(Persona pers) {
-		data.add(pers);
 
+	public static void setdata(Persona pers) {
+		data.add(pers);
 	}
 }

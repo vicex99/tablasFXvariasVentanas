@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 
 import Modelo.DataAgenda;
+import Modelo.Persona;
 import controlador.ControladorMain;
 import vista.VCEdicion;
 import vista.VCprincipal;
@@ -20,7 +21,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stagePrincipal) throws Exception {
 		Main.stagePrincipal = stagePrincipal;
-		mostrarVentanaPrincipal();
+		mostrarAgenda();
 
 	}
 
@@ -28,7 +29,7 @@ public class Main extends Application {
 		launch(args);
 	}
 
-	public void mostrarVentanaPrincipal() {
+	public void mostrarAgenda() {
 		try {
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaPrincipal.fxml"));
 			rootPane = (AnchorPane) loader.load();
@@ -38,36 +39,37 @@ public class Main extends Application {
 
 			VCprincipal controller = loader.getController();
 			controller.setProgramaPrincipal(this);
-			controller.setCM(CMiMain);
+			// controller.setCM(CMiMain);
 
 			stagePrincipal.show();
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public void mostrarVentanaEditar() {
-
-		try {
-			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaEdicion.fxml"));
-			AnchorPane ventanaDos = (AnchorPane) loader.load();
-			/* Creamos la segunda ventana como otro stage */
-			Stage ventana = new Stage();
-			ventana.setTitle("Editar");
-			/* Le decimos a la ventana quién es la ventana original */
-			ventana.initOwner(stagePrincipal);
-			Scene scene = new Scene(ventanaDos);
-			ventana.setScene(scene);
-
-			VCEdicion controller2 = loader.getController();
-			controller2.setStagePrincipal(ventana);
-
-			ventana.show();
-
+			System.out.println("ERROR 1------->" + e.getMessage());
 		} catch (Exception e) {
 			System.out.println("ERROR 2------>" + e.getMessage());
 		}
+	}
+
+	public void mostrarEditor(Persona pers) {
+			try {
+				FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaEdicion.fxml"));
+				AnchorPane ventanaDos = (AnchorPane) loader.load();
+				/* Creamos la segunda ventana como otro stage */
+				Stage ventana = new Stage();
+				ventana.setTitle("Editar");
+				/* Le decimos a la ventana quién es la ventana original */
+				ventana.initOwner(stagePrincipal);
+				Scene scene = new Scene(ventanaDos);
+				ventana.setScene(scene);
+
+				VCEdicion controller2 = loader.getController();
+				controller2.setStagePrincipal(ventana);
+
+				ventana.show();
+
+			} catch (IOException e) {
+				System.out.println("ERROR 3------->" + e.getMessage());
+			} catch (Exception e) {
+				System.out.println("ERROR 4------>" + e.getMessage());
+			}
 	}
 }
