@@ -64,32 +64,37 @@ public class VCprincipal implements Initializable {
 		this.miMain.mostrarAgenda();
 	}
 
-	public void Borrar() {
+	public void borrar() {
 		if (miTabla.getSelectionModel().getSelectedItem() != null) {
 			miTabla.getItems().remove(miTabla.getSelectionModel().getSelectedItem());
 			miTabla.getSelectionModel().clearSelection();
 		} else {
 			System.out.println("no hay selección");
-			errorAlert();
+			errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 
-	private Alert errorAlert() {
+	private Alert errorAlert(String error) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Error al borrar");
 		alert.setHeaderText("");
-		alert.setContentText("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
+		alert.setContentText(error);
 
 		alert.showAndWait();
 		return alert;
 	}
 
-	public void editar() {
+	public void modificar() {
+		if (miTabla.getSelectionModel().getSelectedItem() != null) {
 		// ControladorMain.setdata(new Persona("pepe", "albondiga", 293648632)); //añade datos no se actualiza
-		miMain.mostrarEditor(new Persona("pepe", "albondiga", 293648632));
+		miMain.mostrarEditorModifica(miTabla.getSelectionModel().getSelectedItem());
+		} else {
+			System.out.println("no hay selección");
+			errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
+		}
 	}
 
-	public void borrar() {
-
+	public void insertar() {
+		miMain.mostrarEditorInsertar();
 	}
 }

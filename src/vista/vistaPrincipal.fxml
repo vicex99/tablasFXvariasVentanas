@@ -14,8 +14,8 @@
             <TableColumn fx:id="colTf" prefWidth="181.5999755859375" text="telefono" />
         </columns>
       </TableView>
-      <Button fx:id="btnAceptar" layoutX="146.0" layoutY="337.0" mnemonicParsing="false" onAction="#editar" text="Aceptar" />
-      <Button fx:id="btnBorrar" layoutX="276.0" layoutY="337.0" mnemonicParsing="false" onAction="#Borrar" text="Borrar" />
-      <Button fx:id="btnEditar" layoutX="390.0" layoutY="337.0" mnemonicParsing="false" text="Modificar" />
+      <Button fx:id="btnAceptar" layoutX="146.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertar" text="insertar" />
+      <Button fx:id="btnBorrar" layoutX="276.0" layoutY="337.0" mnemonicParsing="false" onAction="#borrar" text="Borrar" />
+      <Button fx:id="btnEditar" layoutX="390.0" layoutY="337.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
    </children>
 </AnchorPane>
