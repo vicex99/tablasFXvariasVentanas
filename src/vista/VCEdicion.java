@@ -1,10 +1,14 @@
 package vista;
 
+import controlador.ControladorMain;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class VCEdicion {
+	
+	ControladorMain CMiMain;
+	
 	@FXML
 	private Button buttonCancel;
 

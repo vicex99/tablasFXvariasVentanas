@@ -3,8 +3,10 @@ package vista;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Modelo.DataAgenda;
 import Modelo.Persona;
 import application.Main;
+import controlador.ControladorMain;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,7 +20,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class VCprincipal implements Initializable {
 	
-	private Main ProgramaPrincipal;
+	private ControladorMain CmiMain;
+	
+	private Main miMain;
 
 	@FXML
 	private Button btnAceptar;
@@ -41,19 +45,18 @@ public class VCprincipal implements Initializable {
 	@FXML
 	private TableColumn<Persona, Integer> colTf;
 
-	private final ObservableList<Persona> data = FXCollections.observableArrayList(
-			new Persona("Javier", "Sanchez", 234534639), 
-			new Persona("Víctor", "Álvarez", 256435734)
-		);
-
 	// Relaciona el main con el controlador
 	public void setProgramaPrincipal(Main ProgramaPrincipal) {
-		this.ProgramaPrincipal = ProgramaPrincipal;
+		this.miMain = ProgramaPrincipal;
 	}
+	
+//	public void setDatosTabla(DataAgenda datosTabla) {
+//		this.datosTabla = datosTabla;
+//	}
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		miTabla.setItems(this.data);
+		miTabla.setItems(CmiMain.getData());
 		colName.setCellValueFactory(new PropertyValueFactory<Persona, String>("Nombre"));
 		colApe.setCellValueFactory(new PropertyValueFactory<Persona, String>("Apellido"));
 		colTf.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("telefono"));
@@ -61,7 +64,7 @@ public class VCprincipal implements Initializable {
 
 	@FXML
 	private void ventanaIniciar() {
-		this.ProgramaPrincipal.mostrarVentanaPrincipal();
+		this.miMain.mostrarVentanaPrincipal();
 	}
 	
 	
@@ -80,9 +83,19 @@ public class VCprincipal implements Initializable {
 			alert.showAndWait();
 		}
 	}
+	
+	public void editar() {
+		// TODO Auto-generated method stub
 
-	public void Nuevo() {
-		
+	}
+	
+	public void borrar() {
+		// TODO Auto-generated method stub
 
+	}
+	
+	//establece el controlador main que indica los datos
+	public void setCM(ControladorMain m) {
+		CmiMain=m;
 	}
 }
