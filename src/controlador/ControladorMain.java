@@ -4,6 +4,8 @@ import Modelo.Persona;
 import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class ControladorMain {
 
@@ -16,5 +18,15 @@ public class ControladorMain {
 
 	public static void setdata(Persona pers) {
 		data.add(pers);
+	}
+	
+	public static Alert errorAlert(String error) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Error al borrar");
+		alert.setHeaderText("");
+		alert.setContentText(error);
+
+		alert.showAndWait();
+		return alert;
 	}
 }

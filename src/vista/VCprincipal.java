@@ -70,19 +70,11 @@ public class VCprincipal implements Initializable {
 			miTabla.getSelectionModel().clearSelection();
 		} else {
 			System.out.println("no hay selección");
-			errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
+			ControladorMain.errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 
-	private Alert errorAlert(String error) {
-		Alert alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Error al borrar");
-		alert.setHeaderText("");
-		alert.setContentText(error);
 
-		alert.showAndWait();
-		return alert;
-	}
 
 	public void modificar() {
 		if (miTabla.getSelectionModel().getSelectedItem() != null) {
@@ -90,7 +82,7 @@ public class VCprincipal implements Initializable {
 		miMain.mostrarEditorModifica(miTabla.getSelectionModel().getSelectedItem());
 		} else {
 			System.out.println("no hay selección");
-			errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
+			ControladorMain.errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 
