@@ -50,6 +50,7 @@ public class Main extends Application {
 	}
 
 	public void mostrarEditor(Persona pers) {
+		if (pers == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaEdicion.fxml"));
 				AnchorPane ventanaDos = (AnchorPane) loader.load();
@@ -71,5 +72,10 @@ public class Main extends Application {
 			} catch (Exception e) {
 				System.out.println("ERROR 4------>" + e.getMessage());
 			}
+		}else {
+			
+			ControladorMain.setdata(pers);
+			mostrarAgenda();
+		}
 	}
 }
