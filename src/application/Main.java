@@ -2,8 +2,8 @@ package application;
 
 import java.io.IOException;
 
+import Modelo.ModeloMain;
 import Modelo.Persona;
-import controlador.ControladorMain;
 import vista.VCEdicion;
 import vista.VCprincipal;
 import javafx.application.Application;
@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 public class Main extends Application {
 	private static Stage stagePrincipal;
 	private AnchorPane rootPane;
-	private ControladorMain CMiMain;
+	private ModeloMain CMiMain;
 
 	@Override
 	public void start(Stage stagePrincipal) throws Exception {
@@ -67,6 +67,7 @@ public class Main extends Application {
 
 			VCEdicion controller2 = loader.getController();
 			controller2.setStagePrincipal(ventana);
+			
 			controller2.setTfApellido(pers.getApellido());
 			controller2.setTfNombre(pers.getNombre());
 			controller2.setTfTelefono(pers.getTelefono());
@@ -74,7 +75,7 @@ public class Main extends Application {
 
 			ventana.show();
 
-			ControladorMain.setdata(pers);
+			ModeloMain.setdata(pers);
 			mostrarAgenda();
 		} catch (IOException e) {
 			System.out.print("ERROR 3------>  ");

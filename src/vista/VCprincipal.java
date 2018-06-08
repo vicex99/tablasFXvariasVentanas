@@ -3,21 +3,17 @@ package vista;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Modelo.ModeloMain;
 import Modelo.Persona;
 import application.Main;
-import controlador.ControladorMain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class VCprincipal implements Initializable {
-
-	private ControladorMain CmiMain;
 
 	private Main miMain;
 
@@ -53,7 +49,7 @@ public class VCprincipal implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		miTabla.setItems(ControladorMain.getData());
+		miTabla.setItems(ModeloMain.getData());
 		colName.setCellValueFactory(new PropertyValueFactory<Persona, String>("Nombre"));
 		colApe.setCellValueFactory(new PropertyValueFactory<Persona, String>("Apellido"));
 		colTf.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("telefono"));
@@ -70,7 +66,7 @@ public class VCprincipal implements Initializable {
 			miTabla.getSelectionModel().clearSelection();
 		} else {
 			System.out.println("no hay selección");
-			ControladorMain.errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
+			ModeloMain.errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 
@@ -80,7 +76,7 @@ public class VCprincipal implements Initializable {
 		miMain.mostrarEditorModifica(miTabla.getSelectionModel().getSelectedItem(), miTabla.getSelectionModel().getSelectedIndex());
 		} else {
 			System.out.println("no hay selección");
-			ControladorMain.errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
+			ModeloMain.errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 

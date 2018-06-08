@@ -1,12 +1,10 @@
 package vista;
 
+import Modelo.ModeloMain;
 import Modelo.Persona;
 import application.Main;
-import controlador.ControladorMain;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class VCEdicion {
@@ -44,17 +42,24 @@ public class VCEdicion {
 
 	// clickar en OK
 	public void OkPressed() {
+		//¿están todos los campos llenos?
 		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfTelefono.getText().equals("")) {
-			ControladorMain.errorAlert("faltan datos");
+			ModeloMain.errorAlert("faltan datos");
 			
-		} else if (getTfTelefono() == -1 || getTfTelefono() == -2) {
-			ControladorMain.errorAlert("datos mal introducidos");
+			//hay algun error con el int telefono
+			/**
+			 * -1 error, no es un int
+			 * 
+			 * -2 error, no tiene la la longitud adecuada
+			 */
+		} else if (this.getTfTelefono() == -1 || this.getTfTelefono() == -2) {
+			ModeloMain.errorAlert("datos mal introducidos");
 			
 		} else {
 			if(index == -1) {
-				ControladorMain.setdata(new Persona(getTfNombre(), getTfApellido(), getTfTelefono()));
+				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()));
 			}else {
-				ControladorMain.setdata(new Persona(getTfNombre(), getTfApellido(), getTfTelefono()), index);
+				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()), index);
 			}
 			
 			
