@@ -52,7 +52,7 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarEditorModifica(Persona pers) {
+	public void mostrarEditorModifica(Persona pers, int index) {
 		try {
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaEdicion.fxml"));
 			AnchorPane ventanaDos;
@@ -70,15 +70,10 @@ public class Main extends Application {
 
 			VCEdicion controller2 = loader.getController();
 			controller2.setStagePrincipal(ventana);
-
-			System.out.println(pers.getApellido());
 			controller2.setTfApellido(pers.getApellido());
-
-			System.out.println(pers.getNombre());
 			controller2.setTfNombre(pers.getNombre());
-
-			System.out.println(pers.getTelefono());
 			controller2.setTfTelefono(pers.getTelefono());
+			controller2.setIndex(index);
 
 			ventana.show();
 
@@ -98,11 +93,14 @@ public class Main extends Application {
 	public void mostrarEditorInsertar() {
 
 		try {
+			
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaEdicion.fxml"));
 			AnchorPane ventanaDos = (AnchorPane) loader.load();
+			
 			/* Creamos la segunda ventana como otro stage */
 			Stage ventana = new Stage();
 			ventana.setTitle("Editar");
+			
 			/* Le decimos a la ventana quién es la ventana original */
 			ventana.initOwner(stagePrincipal);
 			Scene scene = new Scene(ventanaDos);

@@ -24,6 +24,8 @@ public class VCEdicion {
 
 	@FXML
 	private Stage ventana;
+	
+	private int index;
 
 	// Relaciona el main con el controlador
 	public void setProgramaPrincipal(Main ProgramaPrincipal) {
@@ -49,7 +51,8 @@ public class VCEdicion {
 			ControladorMain.errorAlert("datos mal introducidos");
 			
 		} else {
-			ControladorMain.setdata(new Persona(getTfNombre(), getTfApellido(), getTfTelefono()));
+			ControladorMain.setdata(new Persona(getTfNombre(), getTfApellido(), getTfTelefono()), index);
+			
 			closeWindow();
 		}
 	}
@@ -96,5 +99,13 @@ public class VCEdicion {
 		} catch (Exception e) {
 			return -1;
 		}
+	}
+	
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	
+	public int getIndex() {
+		return index;
 	}
 }

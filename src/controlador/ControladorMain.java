@@ -20,6 +20,10 @@ public class ControladorMain {
 		data.add(pers);
 	}
 	
+	public static void setdata(Persona pers, int index) {
+		data.set(index, pers);
+	}
+	
 	public static Alert errorAlert(String error) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Error al borrar");

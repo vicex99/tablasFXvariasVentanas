@@ -74,12 +74,10 @@ public class VCprincipal implements Initializable {
 		}
 	}
 
-
-
 	public void modificar() {
 		if (miTabla.getSelectionModel().getSelectedItem() != null) {
 		// ControladorMain.setdata(new Persona("pepe", "albondiga", 293648632)); //añade datos no se actualiza
-		miMain.mostrarEditorModifica(miTabla.getSelectionModel().getSelectedItem());
+		miMain.mostrarEditorModifica(miTabla.getSelectionModel().getSelectedItem(), miTabla.getSelectionModel().getSelectedIndex());
 		} else {
 			System.out.println("no hay selección");
 			ControladorMain.errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
