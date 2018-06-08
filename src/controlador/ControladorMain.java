@@ -1,7 +1,6 @@
 package controlador;
 
 import Modelo.Persona;
-import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
