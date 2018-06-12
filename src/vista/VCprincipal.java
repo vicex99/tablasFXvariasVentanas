@@ -72,7 +72,8 @@ public class VCprincipal implements Initializable {
 
 	public void modificar() {
 		if (miTabla.getSelectionModel().getSelectedItem() != null) {
-		miMain.mostrarEditorModifica(miTabla.getSelectionModel().getSelectedItem(), miTabla.getSelectionModel().getSelectedIndex());
+			miMain.mostrarEditorModifica(miTabla.getSelectionModel().getSelectedItem(),
+					miTabla.getSelectionModel().getSelectedIndex());
 		} else {
 			System.out.println("no hay selección");
 			ModeloMain.errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");

@@ -22,7 +22,7 @@ public class VCEdicion {
 
 	@FXML
 	private Stage ventana;
-	
+
 	private int index = -1;
 
 	// Relaciona el main con el controlador
@@ -42,11 +42,11 @@ public class VCEdicion {
 
 	// clickar en OK
 	public void OkPressed() {
-		//¿están todos los campos llenos?
+		// ¿están todos los campos llenos?
 		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfTelefono.getText().equals("")) {
 			ModeloMain.errorAlert("faltan datos");
-			
-			//hay algun error con el int telefono
+
+			// hay algun error con el int telefono
 			/**
 			 * -1 error, no es un int
 			 * 
@@ -54,15 +54,14 @@ public class VCEdicion {
 			 */
 		} else if (this.getTfTelefono() == -1 || this.getTfTelefono() == -2) {
 			ModeloMain.errorAlert("datos mal introducidos");
-			
+
 		} else {
-			if(index == -1) {
+			if (index == -1) {
 				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()));
-			}else {
+			} else {
 				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()), index);
 			}
-			
-			
+
 			closeWindow();
 		}
 	}
@@ -92,9 +91,9 @@ public class VCEdicion {
 	}
 
 	public int getTfTelefono() {
-		
+
 		try {
-			if (TfTelefono.getText().length() == 9 ){
+			if (TfTelefono.getText().length() == 9) {
 				int i = Integer.parseInt(TfTelefono.getText());
 
 				if (i < 0) {
@@ -102,19 +101,19 @@ public class VCEdicion {
 				} else {
 					return i;
 				}
-			}else {
+			} else {
 				return -2;
 			}
-			
+
 		} catch (Exception e) {
 			return -1;
 		}
 	}
-	
+
 	public void setIndex(int index) {
 		this.index = index;
 	}
-	
+
 	public int getIndex() {
 		return index;
 	}
