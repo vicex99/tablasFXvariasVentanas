@@ -20,7 +20,6 @@ public class ModeloMain {
 	}
 	
 	public static void setdata(Persona pers, int index) {
-		data.remove(index);
 		data.set(index, pers);
 	}
 	

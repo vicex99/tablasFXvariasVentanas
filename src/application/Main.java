@@ -35,8 +35,8 @@ public class Main extends Application {
 			stagePrincipal.setTitle("Agenda");
 			stagePrincipal.setScene(scene);
 
-			VCprincipal controller = loader.getController();
-			controller.setProgramaPrincipal(this);
+			VCprincipal controlPrincipal = loader.getController();
+			controlPrincipal.setProgramaPrincipal(this);
 			// controller.setCM(CMiMain);
 
 			stagePrincipal.show();
@@ -65,22 +65,21 @@ public class Main extends Application {
 			Scene scene = new Scene(ventanaDos);
 			ventana.setScene(scene);
 
-			VCEdicion controller2 = loader.getController();
-			controller2.setStagePrincipal(ventana);
-			
-			controller2.setTfApellido(pers.getApellido());
-			controller2.setTfNombre(pers.getNombre());
-			controller2.setTfTelefono(pers.getTelefono());
-			controller2.setIndex(index);
+			VCEdicion controlEditor = loader.getController();
+			controlEditor.setStagePrincipal(ventana);
+
+			controlEditor.setTfApellido(pers.getApellido());
+			controlEditor.setTfNombre(pers.getNombre());
+			controlEditor.setTfTelefono(pers.getTelefono());
+			controlEditor.setIndex(index);
 
 			ventana.show();
 
-			ModeloMain.setdata(pers);
 			mostrarAgenda();
 		} catch (IOException e) {
 			System.out.print("ERROR 3------>  ");
 			e.printStackTrace();
-			
+
 		} catch (Exception e) {
 			System.out.print("ERROR 4------>  ");
 			e.printStackTrace();
@@ -91,14 +90,14 @@ public class Main extends Application {
 	public void mostrarEditorInsertar() {
 
 		try {
-			
+
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaEdicion.fxml"));
 			AnchorPane ventanaDos = (AnchorPane) loader.load();
-			
+
 			/* Creamos la segunda ventana como otro stage */
 			Stage ventana = new Stage();
 			ventana.setTitle("Editar");
-			
+
 			/* Le decimos a la ventana quién es la ventana original */
 			ventana.initOwner(stagePrincipal);
 			Scene scene = new Scene(ventanaDos);
