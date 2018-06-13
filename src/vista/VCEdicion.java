@@ -61,15 +61,22 @@ public class VCEdicion {
 
 		} else {
 			if (index == -1) {
-				ControladorMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getBbdd(), this.getEnds(),
-						this.getFola(), this.getLmsgi(), this.getProg(), this.getSsii()));
+				ControladorMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getMedia()));
 			} else {
-				ControladorMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getBbdd(), this.getEnds(),
-						this.getFola(), this.getLmsgi(), this.getProg(), this.getSsii()), index);
+				ControladorMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getMedia()), index);
 			}
 
 			closeWindow();
 		}
+	}
+
+	// index
+	public void setIndex(int index) {
+		this.index = index;
+	}
+
+	public int getIndex() {
+		return index;
 	}
 
 	// apellido
@@ -85,21 +92,20 @@ public class VCEdicion {
 	// nombre
 	public void setTfNombre(String sNombre) {
 		TfNombre.setText(sNombre);
-		TfNotaMedia.setText(ControladorMain.setMedia(this.getBbdd(), this.getEnds(),
-				this.getFola(), this.getLmsgi(), this.getProg(), this.getSsii()));
+
 	}
 
 	public String getTfNombre() {
 		return TfNombre.getText();
 	}
-
-	// index
-	public void setIndex(int index) {
-		this.index = index;
+	
+	//nota media
+	public String getTfNotaMedia() {
+		return TfNotaMedia.getText();
 	}
-
-	public int getIndex() {
-		return index;
+	
+	public void setTfNotaMedia() {
+		TfNotaMedia = tfNotaMedia;
 	}
 
 	// FOLA

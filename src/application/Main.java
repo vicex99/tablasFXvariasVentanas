@@ -83,7 +83,6 @@ public class Main extends Application {
 			System.out.print("ERROR 4------>  ");
 			e.printStackTrace();
 		}
-
 	}
 
 	public void mostrarEditorInsertar() {
