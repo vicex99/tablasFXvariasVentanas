@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.VCprincipal">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.VCprincipal">
    <children>
-      <TableView fx:id="miTabla" layoutX="30.0" layoutY="32.0" prefHeight="266.0" prefWidth="540.0">
-        <columns>
-          <TableColumn fx:id="colName" prefWidth="189.5999755859375" text="nombre" />
-          <TableColumn fx:id="colApe" prefWidth="168.800048828125" text="apellido" />
-            <TableColumn fx:id="colTf" prefWidth="181.5999755859375" text="telefono" />
-        </columns>
-      </TableView>
-      <Button fx:id="btnAceptar" layoutX="146.0" layoutY="337.0" mnemonicParsing="false" onAction="#insertar" text="insertar" />
-      <Button fx:id="btnBorrar" layoutX="276.0" layoutY="337.0" mnemonicParsing="false" onAction="#borrar" text="Borrar" />
-      <Button fx:id="btnEditar" layoutX="390.0" layoutY="337.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
+      <SplitPane dividerPositions="0.2590420332355816" layoutX="-5.0" orientation="VERTICAL" prefHeight="411.0" prefWidth="530.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="152.0" layoutY="32.0" prefHeight="40.0" prefWidth="223.0" text="Alumnos 1º DAMP" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="btnAceptar" layoutX="161.0" layoutY="262.0" mnemonicParsing="false" onAction="#insertar" text="insertar" />
+                  <Button fx:id="btnBorrar" layoutX="319.0" layoutY="262.0" mnemonicParsing="false" onAction="#borrar" text="Borrar" />
+                  <Button fx:id="btnEditar" layoutX="235.0" layoutY="262.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
+                  <TableView fx:id="miTabla" layoutX="43.0" layoutY="29.0" prefHeight="218.0" prefWidth="442.0">
+                    <columns>
+                      <TableColumn fx:id="colName" prefWidth="139.20001602172852" text="nombre" />
+                      <TableColumn fx:id="colApe" prefWidth="151.1999969482422" text="apellido" />
+                        <TableColumn fx:id="colMedia" prefWidth="150.39998779296877" text="nota media" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

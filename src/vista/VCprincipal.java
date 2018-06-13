@@ -52,7 +52,7 @@ public class VCprincipal implements Initializable {
 		miTabla.setItems(ControlerMain.getData());
 		colName.setCellValueFactory(new PropertyValueFactory<Alumno, String>("Nombre"));
 		colApe.setCellValueFactory(new PropertyValueFactory<Alumno, String>("Apellido"));
-		colMedia.setCellValueFactory(new PropertyValueFactory<Alumno, Integer>("nota media"));
+		colMedia.setCellValueFactory(new PropertyValueFactory<Alumno, Integer>("media"));
 	}
 
 	@FXML

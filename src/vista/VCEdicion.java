@@ -22,7 +22,7 @@ public class VCEdicion {
 
 	@FXML
 	private Stage ventana;
-	
+
 	@FXML
 	private TextField TfFOLA;
 	@FXML
@@ -35,7 +35,6 @@ public class VCEdicion {
 	private TextField TfLMSGI;
 	@FXML
 	private TextField TfBBDD;
-
 
 	private int index = -1;
 
@@ -56,6 +55,8 @@ public class VCEdicion {
 
 	// clickar en OK
 	public void OkPressed() {
+		
+		setTfMedia();
 		// ¿están todos los campos llenos?
 		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfMedia.getText().equals("")) {
 			ControlerMain.errorAlert("faltan datos");
@@ -92,7 +93,8 @@ public class VCEdicion {
 
 	// media
 	public void setTfMedia() {
-//		TfMedia=notaFola + nota
+		int media = (getTfFOLA() + getTfSSII() + getTfPROG() + getTfENDS() + getTfLMSGI() + getTfBBDD())/6;
+		 TfMedia.setText(Integer.toString(media));
 	}
 
 	public int getTfMedia() {
@@ -105,7 +107,7 @@ public class VCEdicion {
 		}
 	}
 
-	//posicion en el observableList
+	// posicion en el observableList
 	public void setIndex(int index) {
 		this.index = index;
 	}
@@ -113,4 +115,95 @@ public class VCEdicion {
 	public int getIndex() {
 		return index;
 	}
+
+	// TfFOLA;
+	public int getTfFOLA() {
+		try {
+			return Integer.parseInt(TfFOLA.getText());
+		} catch (Exception e) {
+			System.out.print("error getFola");
+			e.getStackTrace();
+		}
+		return -1;
+	}
+
+	public void setTfFOLA(String FOLA) {
+		TfFOLA.setText(FOLA);
+	}
+
+	// TfSSII;
+	public int getTfSSII() {
+		try {
+			return Integer.parseInt(TfSSII.getText());
+		} catch (Exception e) {
+			System.out.print("error getSsii");
+			e.getStackTrace();
+		}
+		return -1;
+	}
+
+	public void setTfSSII(String SSII) {
+		TfSSII.setText(SSII);
+	}
+
+	// TfPROG
+	public int getTfPROG() {
+		try {
+			return Integer.parseInt(TfPROG.getText());
+		} catch (Exception e) {
+			System.out.print("error geProg");
+			e.getStackTrace();
+		}
+		return -1;
+	}
+
+	public void setTfPROG(String PROG) {
+		TfPROG.setText(PROG);
+	}
+
+	// private TextField TfENDS;
+	public int getTfENDS() {
+		try {
+			return Integer.parseInt(TfENDS.getText());
+		} catch (Exception e) {
+			System.out.print("error getEnds");
+			e.getStackTrace();
+		}
+		return -1;
+	}
+
+	public void setTfENDS(String ENDS) {
+		TfENDS.setText(ENDS);
+	}
+	
+	// private TextField TfLMSGI;
+	public int getTfLMSGI() {
+		try {
+			return Integer.parseInt(TfLMSGI.getText());
+		} catch (Exception e) {
+			System.out.print("error getLMSGI");
+			e.getStackTrace();
+		}
+		return -1;
+	}
+
+	public void setTfLMSGI(String LMSGI) {
+		TfLMSGI.setText(LMSGI);
+	}
+	
+	// private TextField TfBBDD;
+	public int getTfBBDD() {
+		try {
+			return Integer.parseInt(TfBBDD.getText());
+		} catch (Exception e) {
+			System.out.print("error getBBDD");
+			e.getStackTrace();
+		}
+		return -1;
+	}
+
+	public void setTfBBDD(String BBDD) {
+		TfBBDD.setText(BBDD);
+	}
+	
 }
