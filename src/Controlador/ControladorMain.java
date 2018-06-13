@@ -1,4 +1,4 @@
-package Modelo;
+package Controlador;
 
 import Modelo.Persona;
 import javafx.collections.FXCollections;
@@ -6,10 +6,12 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class ModeloMain {
+public class ControladorMain {
+	
+	private static double media;
 
 	private final static ObservableList<Persona> data = FXCollections.observableArrayList(
-			new Persona("Javier", "Sanchez", 234534639), new Persona("Víctor", "Álvarez", 256435734));
+			new Persona("Javier", "Sanchez", 8, 8, 8, 8, 8, 8), new Persona("Víctor", "Álvarez", 10, 10, 10, 10, 10, 10));
 
 	public static ObservableList<Persona> getData() {
 		return data;
@@ -21,6 +23,14 @@ public class ModeloMain {
 
 	public static void setdata(Persona pers, int index) {
 		data.set(index, pers);
+	}
+	
+	public void setMedia(double bbdd, double ends, double fola, double lmsgi, double prog, double ssii) {
+		media = (bbdd + ends + fola + lmsgi + prog + ssii) / 2;
+	}
+	
+	public static double getMedia() {
+		return media;
 	}
 
 	public static Alert errorAlert(String error) {

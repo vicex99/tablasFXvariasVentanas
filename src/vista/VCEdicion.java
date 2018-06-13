@@ -1,6 +1,6 @@
 package vista;
 
-import Modelo.ModeloMain;
+import Controlador.ControladorMain;
 import Modelo.Persona;
 import application.Main;
 import javafx.fxml.FXML;
@@ -13,12 +13,23 @@ public class VCEdicion {
 
 	@FXML
 	private TextField TfNombre;
-
 	@FXML
 	private TextField TfApellido;
+	@FXML
+	private TextField TfNotaMedia;
 
 	@FXML
-	private TextField TfTelefono;
+	private TextField TfFOLA;
+	@FXML
+	private TextField TfSSII;
+	@FXML
+	private TextField TfPROG;
+	@FXML
+	private TextField TfENDS;
+	@FXML
+	private TextField TfLMSGI;
+	@FXML
+	private TextField TfBBDD;
 
 	@FXML
 	private Stage ventana;
@@ -43,23 +54,18 @@ public class VCEdicion {
 	// clickar en OK
 	public void OkPressed() {
 		// ¿están todos los campos llenos?
-		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfTelefono.getText().equals("")) {
-			ModeloMain.errorAlert("faltan datos");
-
-			// hay algun error con el int telefono
-			/**
-			 * -1 error, no es un int
-			 * 
-			 * -2 error, no tiene la la longitud adecuada
-			 */
-		} else if (this.getTfTelefono() == -1 || this.getTfTelefono() == -2) {
-			ModeloMain.errorAlert("datos mal introducidos");
+		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfBBDD.getText().equals("")
+				|| TfENDS.getText().equals("") || TfBBDD.getText().equals("") || TfFOLA.getText().equals("")
+				|| TfLMSGI.getText().equals("") || TfPROG.getText().equals("") || TfSSII.getText().equals("")) {
+			ControladorMain.errorAlert("faltan datos");
 
 		} else {
 			if (index == -1) {
-				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()));
+				ControladorMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getBbdd(), this.getEnds(),
+						this.getFola(), this.getLmsgi(), this.getProg(), this.getSsii()));
 			} else {
-				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()), index);
+				ControladorMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getBbdd(), this.getEnds(),
+						this.getFola(), this.getLmsgi(), this.getProg(), this.getSsii()), index);
 			}
 
 			closeWindow();
@@ -79,42 +85,104 @@ public class VCEdicion {
 	// nombre
 	public void setTfNombre(String sNombre) {
 		TfNombre.setText(sNombre);
+		TfNotaMedia.setText(ControladorMain.setMedia(this.getBbdd(), this.getEnds(),
+				this.getFola(), this.getLmsgi(), this.getProg(), this.getSsii()));
 	}
 
 	public String getTfNombre() {
 		return TfNombre.getText();
 	}
 
-	// telefono
-	public void setTfTelefono(int i) {
-		TfTelefono.setText(Integer.toString(i));
-	}
-
-	public int getTfTelefono() {
-
-		try {
-			if (TfTelefono.getText().length() == 9) {
-				int i = Integer.parseInt(TfTelefono.getText());
-
-				if (i < 0) {
-					return -1;
-				} else {
-					return i;
-				}
-			} else {
-				return -2;
-			}
-
-		} catch (Exception e) {
-			return -1;
-		}
-	}
-
+	// index
 	public void setIndex(int index) {
 		this.index = index;
 	}
 
 	public int getIndex() {
 		return index;
+	}
+
+	// FOLA
+	public int getFola() {
+		try {
+			return Integer.parseInt(TfFOLA.getText());
+		} catch (Exception e) {
+			ControladorMain.errorAlert("ERROR al introducir los datos");
+			return 0;
+		}
+	}
+
+	public void setFola(int fola) {
+		this.TfFOLA.setText(Integer.toString(fola));
+	}
+
+	// BBDD
+	public int getBbdd() {
+		try {
+			return Integer.parseInt(TfBBDD.getText());
+		} catch (Exception e) {
+			ControladorMain.errorAlert("ERROR al introducir los datos");
+			return 0;
+		}
+	}
+
+	public void setBbdd(int fola) {
+		this.TfBBDD.setText(Integer.toString(fola));
+	}
+
+	// ENDS
+	public int getEnds() {
+		try {
+			return Integer.parseInt(TfENDS.getText());
+		} catch (Exception e) {
+			ControladorMain.errorAlert("ERROR al introducir los datos");
+			return 0;
+		}
+	}
+
+	public void setEnds(int ends) {
+		this.TfENDS.setText(Integer.toString(ends));
+	}
+
+	// LMSGI
+	public int getLmsgi() {
+		try {
+			return Integer.parseInt(TfLMSGI.getText());
+		} catch (Exception e) {
+			ControladorMain.errorAlert("ERROR al introducir los datos");
+			return 0;
+		}
+	}
+
+	public void setLmsgi(int lmsgi) {
+		this.TfLMSGI.setText(Integer.toString(lmsgi));
+	}
+
+	// PROG
+	public int getProg() {
+		try {
+			return Integer.parseInt(TfPROG.getText());
+		} catch (Exception e) {
+			ControladorMain.errorAlert("ERROR al introducir los datos");
+			return 0;
+		}
+	}
+
+	public void setProg(int prog) {
+		this.TfPROG.setText(Integer.toString(prog));
+	}
+
+	// SSII
+	public int getSsii() {
+		try {
+			return Integer.parseInt(TfSSII.getText());
+		} catch (Exception e) {
+			ControladorMain.errorAlert("ERROR al introducir los datos");
+			return 0;
+		}
+	}
+
+	public void setSsii(int ssii) {
+		this.TfSSII.setText(Integer.toString(ssii));
 	}
 }

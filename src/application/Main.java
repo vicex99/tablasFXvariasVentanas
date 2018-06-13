@@ -2,7 +2,7 @@ package application;
 
 import java.io.IOException;
 
-import Modelo.ModeloMain;
+import Controlador.ControladorMain;
 import Modelo.Persona;
 import vista.VCEdicion;
 import vista.VCprincipal;
@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 public class Main extends Application {
 	private static Stage stagePrincipal;
 	private AnchorPane rootPane;
-	private ModeloMain CMiMain;
+	private ControladorMain CMiMain;
 
 	@Override
 	public void start(Stage stagePrincipal) throws Exception {
@@ -70,7 +70,6 @@ public class Main extends Application {
 
 			controlEditor.setTfApellido(pers.getApellido());
 			controlEditor.setTfNombre(pers.getNombre());
-			controlEditor.setTfTelefono(pers.getTelefono());
 			controlEditor.setIndex(index);
 
 			ventana.show();
@@ -111,6 +110,7 @@ public class Main extends Application {
 		} catch (IOException e) {
 			System.out.print("ERROR 5------>  ");
 			e.printStackTrace();
+			
 		} catch (Exception e) {
 			System.out.print("ERROR 6------>  ");
 			e.printStackTrace();

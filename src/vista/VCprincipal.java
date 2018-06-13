@@ -3,7 +3,7 @@ package vista;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Modelo.ModeloMain;
+import Controlador.ControladorMain;
 import Modelo.Persona;
 import application.Main;
 import javafx.fxml.FXML;
@@ -49,7 +49,7 @@ public class VCprincipal implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		miTabla.setItems(ModeloMain.getData());
+		miTabla.setItems(ControladorMain.getData());
 		colName.setCellValueFactory(new PropertyValueFactory<Persona, String>("Nombre"));
 		colApe.setCellValueFactory(new PropertyValueFactory<Persona, String>("Apellido"));
 		colTf.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("telefono"));
@@ -66,7 +66,7 @@ public class VCprincipal implements Initializable {
 			miTabla.getSelectionModel().clearSelection();
 		} else {
 			System.out.println("no hay selección");
-			ModeloMain.errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
+			ControladorMain.errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 
