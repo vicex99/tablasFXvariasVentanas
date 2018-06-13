@@ -2,8 +2,8 @@ package application;
 
 import java.io.IOException;
 
-import Modelo.ModeloMain;
-import Modelo.Persona;
+import Controler.ControlerMain;
+import Modelo.Alumno;
 import vista.VCEdicion;
 import vista.VCprincipal;
 import javafx.application.Application;
@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 public class Main extends Application {
 	private static Stage stagePrincipal;
 	private AnchorPane rootPane;
-	private ModeloMain CMiMain;
+	private ControlerMain CMiMain;
 
 	@Override
 	public void start(Stage stagePrincipal) throws Exception {
@@ -49,7 +49,7 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarEditorModifica(Persona pers, int index) {
+	public void mostrarEditorModifica(Alumno pers, int index) {
 		try {
 			FXMLLoader loader = new FXMLLoader(Main.class.getResource("../vista/vistaEdicion.fxml"));
 			AnchorPane ventanaDos;
@@ -70,7 +70,7 @@ public class Main extends Application {
 
 			controlEditor.setTfApellido(pers.getApellido());
 			controlEditor.setTfNombre(pers.getNombre());
-			controlEditor.setTfTelefono(pers.getTelefono());
+//			controlEditor.setTfMedia(pers.getTelefono());
 			controlEditor.setIndex(index);
 
 			ventana.show();

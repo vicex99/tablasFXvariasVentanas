@@ -3,8 +3,8 @@ package vista;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Modelo.ModeloMain;
-import Modelo.Persona;
+import Controler.ControlerMain;
+import Modelo.Alumno;
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,16 +27,16 @@ public class VCprincipal implements Initializable {
 	private Button btnBorrar;
 
 	@FXML
-	private TableView<Persona> miTabla;
+	private TableView<Alumno> miTabla;
 
 	@FXML
-	private TableColumn<Persona, String> colName;
+	private TableColumn<Alumno, String> colName;
 
 	@FXML
-	private TableColumn<Persona, String> colApe;
+	private TableColumn<Alumno, String> colApe;
 
 	@FXML
-	private TableColumn<Persona, Integer> colTf;
+	private TableColumn<Alumno, Integer> colMedia;
 
 	// Relaciona el main con el controlador
 	public void setProgramaPrincipal(Main ProgramaPrincipal) {
@@ -49,10 +49,10 @@ public class VCprincipal implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		miTabla.setItems(ModeloMain.getData());
-		colName.setCellValueFactory(new PropertyValueFactory<Persona, String>("Nombre"));
-		colApe.setCellValueFactory(new PropertyValueFactory<Persona, String>("Apellido"));
-		colTf.setCellValueFactory(new PropertyValueFactory<Persona, Integer>("telefono"));
+		miTabla.setItems(ControlerMain.getData());
+		colName.setCellValueFactory(new PropertyValueFactory<Alumno, String>("Nombre"));
+		colApe.setCellValueFactory(new PropertyValueFactory<Alumno, String>("Apellido"));
+		colMedia.setCellValueFactory(new PropertyValueFactory<Alumno, Integer>("nota media"));
 	}
 
 	@FXML
@@ -66,7 +66,7 @@ public class VCprincipal implements Initializable {
 			miTabla.getSelectionModel().clearSelection();
 		} else {
 			System.out.println("no hay selección");
-			ModeloMain.errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
+			ControlerMain.errorAlert("intentando borrar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 
@@ -76,7 +76,7 @@ public class VCprincipal implements Initializable {
 					miTabla.getSelectionModel().getSelectedIndex());
 		} else {
 			System.out.println("no hay selección");
-			ModeloMain.errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
+			ControlerMain.errorAlert("intentando editar un objeto no seleccionado, por favor seleccione una fila");
 		}
 	}
 

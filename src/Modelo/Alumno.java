@@ -1,15 +1,15 @@
 package Modelo;
 
-public class Persona {
+public class Alumno {
 
 	private String nombre;
 	private String apellido;
-	private int telefono;
+	private int media;
 
-	public Persona(String nombre, String apellido, int tf) {
+	public Alumno(String nombre, String apellido, int media) {
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.telefono = tf;
+		this.media = media;
 	}
 
 	public String getNombre() {
@@ -28,11 +28,12 @@ public class Persona {
 		this.apellido = apellido;
 	}
 
-	public int getTelefono() {
-		return telefono;
+	//poner la media del alumno
+	public void setMedia(int media) {
+		this.media = media;
 	}
 
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
+	public int getMedia() {
+		return media;
 	}
 }

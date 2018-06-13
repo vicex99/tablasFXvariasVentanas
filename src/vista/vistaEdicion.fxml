@@ -2,18 +2,45 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.VCEdicion">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.VCEdicion">
    <children>
-      <Label layoutX="42.0" layoutY="38.0" prefHeight="18.0" prefWidth="81.0" text="Nombre" />
-      <Label layoutX="42.0" layoutY="84.0" prefHeight="18.0" prefWidth="82.0" text="Apellido" />
-      <Label layoutX="42.0" layoutY="129.0" prefHeight="18.0" prefWidth="82.0" text="Telefono" />
-      <TextField fx:id="TfNombre" layoutX="125.0" layoutY="35.0" />
-      <TextField fx:id="TfApellido" layoutX="125.0" layoutY="80.0" />
-      <TextField fx:id="TfTelefono" layoutX="125.0" layoutY="126.0" />
-      <Button fx:id="buttonOK" layoutX="124.0" layoutY="204.0" mnemonicParsing="false" onAction="#OkPressed" prefHeight="26.0" prefWidth="64.0" text="OK" />
-      <Button fx:id="buttonCancel" layoutX="210.0" layoutY="204.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="64.0" text="Cancel" />
+      <SplitPane dividerPositions="0.45072788353863386" layoutX="1.0" layoutY="6.0" orientation="VERTICAL" prefHeight="359.0" prefWidth="508.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="201.0" layoutY="17.0" prefHeight="18.0" prefWidth="81.0" text="Nombre" />
+                  <Label layoutX="201.0" layoutY="66.0" prefHeight="18.0" prefWidth="82.0" text="Apellido" />
+                  <Label layoutX="201.0" layoutY="118.0" prefHeight="18.0" prefWidth="82.0" text="Nota media" textFill="#615d5d" />
+                  <TextField fx:id="TfNombre" layoutX="284.0" layoutY="14.0" />
+                  <TextField fx:id="TfApellido" layoutX="284.0" layoutY="62.0" />
+                  <TextField fx:id="TfMedia" editable="false" layoutX="284.0" layoutY="115.0" />
+                  <ImageView fitHeight="136.0" fitWidth="128.0" layoutX="33.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="buttonOK" layoutX="208.0" layoutY="158.0" mnemonicParsing="false" onAction="#OkPressed" prefHeight="26.0" prefWidth="64.0" text="OK" />
+                  <Button fx:id="buttonCancel" layoutX="294.0" layoutY="158.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="64.0" text="Cancel" />
+                  <Label layoutX="41.0" layoutY="39.0" prefHeight="18.0" prefWidth="64.0" text="FOLA" />
+                  <TextField fx:id="TfFOLA" layoutX="105.0" layoutY="35.0" prefHeight="26.0" prefWidth="114.0" />
+                  <Label layoutX="41.0" layoutY="70.0" prefHeight="18.0" prefWidth="64.0" text="SSII" />
+                  <TextField fx:id="TfSSII" layoutX="105.0" layoutY="66.0" prefHeight="26.0" prefWidth="114.0" />
+                  <Label layoutX="41.0" layoutY="102.0" prefHeight="18.0" prefWidth="64.0" text="PROG" />
+                  <TextField fx:id="TfPROG" layoutX="105.0" layoutY="98.0" prefHeight="26.0" prefWidth="114.0" />
+                  <Label layoutX="262.0" layoutY="39.0" prefHeight="18.0" prefWidth="64.0" text="ENDS" />
+                  <TextField fx:id="TfENDS" layoutX="339.0" layoutY="35.0" />
+                  <Label layoutX="262.0" layoutY="69.0" prefHeight="18.0" prefWidth="64.0" text="LMSGI" />
+                  <TextField fx:id="TfLMSGI" layoutX="339.0" layoutY="66.0" />
+                  <Label layoutX="262.0" layoutY="102.0" prefHeight="18.0" prefWidth="64.0" text="BBDD" />
+                  <TextField fx:id="TfBBDD" layoutX="339.0" layoutY="98.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>

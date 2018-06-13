@@ -1,7 +1,7 @@
 package vista;
 
-import Modelo.ModeloMain;
-import Modelo.Persona;
+import Controler.ControlerMain;
+import Modelo.Alumno;
 import application.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -18,10 +18,24 @@ public class VCEdicion {
 	private TextField TfApellido;
 
 	@FXML
-	private TextField TfTelefono;
+	private TextField TfMedia;
 
 	@FXML
 	private Stage ventana;
+	
+	@FXML
+	private TextField TfFOLA;
+	@FXML
+	private TextField TfSSII;
+	@FXML
+	private TextField TfPROG;
+	@FXML
+	private TextField TfENDS;
+	@FXML
+	private TextField TfLMSGI;
+	@FXML
+	private TextField TfBBDD;
+
 
 	private int index = -1;
 
@@ -43,23 +57,14 @@ public class VCEdicion {
 	// clickar en OK
 	public void OkPressed() {
 		// ¿están todos los campos llenos?
-		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfTelefono.getText().equals("")) {
-			ModeloMain.errorAlert("faltan datos");
-
-			// hay algun error con el int telefono
-			/**
-			 * -1 error, no es un int
-			 * 
-			 * -2 error, no tiene la la longitud adecuada
-			 */
-		} else if (this.getTfTelefono() == -1 || this.getTfTelefono() == -2) {
-			ModeloMain.errorAlert("datos mal introducidos");
+		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfMedia.getText().equals("")) {
+			ControlerMain.errorAlert("faltan datos");
 
 		} else {
 			if (index == -1) {
-				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()));
+				ControlerMain.setdata(new Alumno(this.getTfNombre(), this.getTfApellido(), this.getTfMedia()));
 			} else {
-				ModeloMain.setdata(new Persona(this.getTfNombre(), this.getTfApellido(), this.getTfTelefono()), index);
+				ControlerMain.setdata(new Alumno(this.getTfNombre(), this.getTfApellido(), this.getTfMedia()), index);
 			}
 
 			closeWindow();
@@ -85,31 +90,22 @@ public class VCEdicion {
 		return TfNombre.getText();
 	}
 
-	// telefono
-	public void setTfTelefono(int i) {
-		TfTelefono.setText(Integer.toString(i));
+	// media
+	public void setTfMedia() {
+//		TfMedia=notaFola + nota
 	}
 
-	public int getTfTelefono() {
-
+	public int getTfMedia() {
 		try {
-			if (TfTelefono.getText().length() == 9) {
-				int i = Integer.parseInt(TfTelefono.getText());
-
-				if (i < 0) {
-					return -1;
-				} else {
-					return i;
-				}
-			} else {
-				return -2;
-			}
-
+			return Integer.parseInt(TfMedia.getText());
 		} catch (Exception e) {
+			System.out.print("ERROR GETMEDIA - ");
+			e.getStackTrace();
 			return -1;
 		}
 	}
 
+	//posicion en el observableList
 	public void setIndex(int index) {
 		this.index = index;
 	}

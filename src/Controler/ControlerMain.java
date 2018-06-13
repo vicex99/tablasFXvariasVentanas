@@ -1,25 +1,25 @@
-package Modelo;
+package Controler;
 
-import Modelo.Persona;
+import Modelo.Alumno;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class ModeloMain {
+public class ControlerMain {
 
-	private final static ObservableList<Persona> data = FXCollections.observableArrayList(
-			new Persona("Javier", "Sanchez", 234534639), new Persona("Víctor", "Álvarez", 256435734));
+	private final static ObservableList<Alumno> data = FXCollections.observableArrayList(
+			new Alumno("Javier", "Sanchez", 234534639), new Alumno("Víctor", "Álvarez", 256435734));
 
-	public static ObservableList<Persona> getData() {
+	public static ObservableList<Alumno> getData() {
 		return data;
 	}
 
-	public static void setdata(Persona pers) {
+	public static void setdata(Alumno pers) {
 		data.add(pers);
 	}
 
-	public static void setdata(Persona pers, int index) {
+	public static void setdata(Alumno pers, int index) {
 		data.set(index, pers);
 	}
 
