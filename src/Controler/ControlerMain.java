@@ -8,8 +8,7 @@ import javafx.scene.control.Alert.AlertType;
 
 public class ControlerMain {
 
-	private final static ObservableList<Alumno> data = FXCollections.observableArrayList(
-			new Alumno("Javier", "Sanchez", 234534639), new Alumno("Víctor", "Álvarez", 256435734));
+	private final static ObservableList<Alumno> data = FXCollections.observableArrayList();
 
 	public static ObservableList<Alumno> getData() {
 		return data;

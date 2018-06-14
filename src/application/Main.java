@@ -68,10 +68,8 @@ public class Main extends Application {
 			VCEdicion controlEditor = loader.getController();
 			controlEditor.setStagePrincipal(ventana);
 
-			controlEditor.setTfApellido(pers.getApellido());
-			controlEditor.setTfNombre(pers.getNombre());
-//			controlEditor.setTfMedia(pers.getTelefono());
-			controlEditor.setIndex(index);
+			controlEditor.setAlumno(pers, index);
+			
 
 			ventana.show();
 
