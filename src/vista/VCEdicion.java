@@ -13,10 +13,8 @@ public class VCEdicion {
 
 	@FXML
 	private TextField TfNombre;
-
 	@FXML
 	private TextField TfApellido;
-
 	@FXML
 	private TextField TfMedia;
 
@@ -77,10 +75,15 @@ public class VCEdicion {
 			ControlerMain.errorAlert("error al introducir los datos");
 
 		} else {
+			
 			if (index == -1) {
-				ControlerMain.setdata(new Alumno(this.getTfNombre(), this.getTfApellido(), this.getTfMedia()));
+				ControlerMain.setdata(new Alumno(this.getTfNombre(), this.getTfApellido(), this.getTfMedia(),
+						this.getTfBBDD(), this.getTfENDS(), this.getTfFOLA(), this.getTfLMSGI(), this.getTfPROG(),
+						this.getTfSSII()));
 			} else {
-				ControlerMain.setdata(new Alumno(this.getTfNombre(), this.getTfApellido(), this.getTfMedia()), index);
+				ControlerMain.setdata(new Alumno(this.getTfNombre(), this.getTfApellido(), this.getTfMedia(),
+						this.getTfBBDD(), this.getTfENDS(), this.getTfFOLA(), this.getTfLMSGI(), this.getTfPROG(),
+						this.getTfSSII()), index);
 			}
 
 			closeWindow();
@@ -114,7 +117,8 @@ public class VCEdicion {
 
 	public double getTfMedia() {
 		try {
-			return Double.parseDouble(TfMedia.getText());
+			double num = Double.parseDouble(TfMedia.getText());
+			return Math.round(num * 100.0) / 100.0;
 		} catch (Exception e) {
 			System.out.print("ERROR GETMEDIA - ");
 			e.getStackTrace();

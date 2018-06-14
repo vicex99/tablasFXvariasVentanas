@@ -68,8 +68,8 @@ public class Main extends Application {
 			VCEdicion controlEditor = loader.getController();
 			controlEditor.setStagePrincipal(ventana);
 
+			System.out.println(pers.toString());
 			controlEditor.setAlumno(pers, index);
-			
 
 			ventana.show();
 

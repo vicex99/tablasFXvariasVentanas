@@ -15,6 +15,7 @@ public class ControlerMain {
 	}
 
 	public static void setdata(Alumno pers) {
+		System.out.println(pers.getMedia());
 		data.add(pers);
 	}
 

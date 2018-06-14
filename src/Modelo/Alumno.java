@@ -13,10 +13,17 @@ public class Alumno {
 	private double notaLMSGI;
 	private double notaBBDD;
 
-	public Alumno(String nombre, String apellido, double media) {
+	public Alumno(String nombre, String apellido, double media, double fola, double ssii, double prog, double ends,
+			double lmsgi, double bbdd) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.media = media;
+		this.notaFOLA = fola;
+		this.notaSSII = ssii;
+		this.notaPROG = prog;
+		this.notaENDS = ends;
+		this.notaLMSGI = lmsgi;
+		this.notaBBDD = bbdd;
 	}
 
 	public String getNombre() {
@@ -100,7 +107,7 @@ public class Alumno {
 
 	@Override
 	public String toString() {
-		String pers = this.nombre + " " + this.apellido + ", notas: " + this.notaBBDD + " " + this.notaENDS + " "
+		String pers = "Alumno " + this.nombre + " " + this.apellido + " con media" + this.media + ", notas: " + this.notaBBDD + " " + this.notaENDS + " "
 				+ this.notaFOLA + " " + this.notaLMSGI + " " + this.notaPROG + " " + this.notaSSII;
 		return pers;
 	}
