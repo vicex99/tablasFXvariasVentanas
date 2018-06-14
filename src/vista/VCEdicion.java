@@ -57,9 +57,24 @@ public class VCEdicion {
 	public void OkPressed() {
 
 		setTfMedia();
-		// ¿están todos los campos llenos?
-		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfMedia.getText().equals("")) {
+		/*
+		 * if - comprobar si se han rellenado todos los campos
+		 * 
+		 * else if - comprobar si no da fallos o es un valor incorrecto
+		 * 
+		 * else - si todo esta bien pasa los datos a la otra pantalla
+		 */
+		if (TfNombre.getText().equals("") || TfApellido.getText().equals("") || TfBBDD.getText().equals("")
+				|| TfENDS.getText().equals("") || TfFOLA.getText().equals("") || TfLMSGI.getText().equals("")
+				|| TfPROG.getText().equals("") || TfSSII.getText().equals("")) {
 			ControlerMain.errorAlert("faltan datos");
+
+		} else if (getTfBBDD() == -1 || getTfENDS() == -1 || getTfFOLA() == -1 || getTfLMSGI() == -1
+				|| getTfPROG() == -1 || getTfSSII() == -1 || getTfBBDD() > 10 || getTfENDS() > 10 || getTfFOLA() > 10
+				|| getTfLMSGI() > 10 || getTfPROG() > 10 || getTfSSII() > 10 || getTfBBDD() < 0 || getTfENDS() < 0
+				|| getTfFOLA() < 0 || getTfLMSGI() < 0 || getTfPROG() < 0 || getTfSSII() < 0) {
+
+			ControlerMain.errorAlert("error al introducir los datos");
 
 		} else {
 			if (index == -1) {
@@ -133,12 +148,11 @@ public class VCEdicion {
 	public double getTfFOLA() {
 		try {
 			double num = Double.parseDouble(TfFOLA.getText());
-			return Math.round(num*100.0)/100.0;
+			return Math.round(num * 100.0) / 100.0;
 		} catch (Exception e) {
-			System.out.print("error getFola");
-			e.getStackTrace();
+			return -1;
 		}
-		return -1;
+
 	}
 
 	public void setTfFOLA(double FOLA) {
@@ -149,12 +163,11 @@ public class VCEdicion {
 	public double getTfSSII() {
 		try {
 			double num = Double.parseDouble(TfSSII.getText());
-			return Math.round(num*100.0)/100.0;
+			return Math.round(num * 100.0) / 100.0;
 		} catch (Exception e) {
-			System.out.print("error getSsii");
-			e.getStackTrace();
+			return -1;
 		}
-		return -1;
+
 	}
 
 	public void setTfSSII(double SSII) {
@@ -165,12 +178,11 @@ public class VCEdicion {
 	public double getTfPROG() {
 		try {
 			double num = Double.parseDouble(TfPROG.getText());
-			return Math.round(num*100.0)/100.0;
+			return Math.round(num * 100.0) / 100.0;
 		} catch (Exception e) {
-			System.out.print("error geProg");
-			e.getStackTrace();
+			return -1;
 		}
-		return -1;
+
 	}
 
 	public void setTfPROG(double PROG) {
@@ -181,12 +193,11 @@ public class VCEdicion {
 	public double getTfENDS() {
 		try {
 			double num = Double.parseDouble(TfENDS.getText());
-			return Math.round(num*100.0)/100.0;
+			return Math.round(num * 100.0) / 100.0;
 		} catch (Exception e) {
-			System.out.print("error getEnds");
-			e.getStackTrace();
+			return -1;
 		}
-		return -1;
+
 	}
 
 	public void setTfENDS(double ENDS) {
@@ -197,12 +208,11 @@ public class VCEdicion {
 	public double getTfLMSGI() {
 		try {
 			double num = Double.parseDouble(TfLMSGI.getText());
-			return Math.round(num*100.0)/100.0;
+			return Math.round(num * 100.0) / 100.0;
 		} catch (Exception e) {
-			System.out.print("error getLMSGI");
-			e.getStackTrace();
+			return -1;
 		}
-		return -1;
+
 	}
 
 	public void setTfLMSGI(double LMSGI) {
@@ -213,12 +223,11 @@ public class VCEdicion {
 	public double getTfBBDD() {
 		try {
 			double num = Double.parseDouble(TfBBDD.getText());
-			return Math.round(num*100.0)/100.0;
+			return Math.round(num * 100.0) / 100.0;
 		} catch (Exception e) {
-			System.out.print("error getBBDD");
-			e.getStackTrace();
+			return -1;
 		}
-		return -1;
+
 	}
 
 	public void setTfBBDD(double BBDD) {

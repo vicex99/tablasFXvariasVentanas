@@ -97,4 +97,11 @@ public class Alumno {
 	public void setNotaBBDD(double notaBBDD) {
 		this.notaBBDD = notaBBDD;
 	}
+
+	@Override
+	public String toString() {
+		String pers = this.nombre + " " + this.apellido + ", notas: " + this.notaBBDD + " " + this.notaENDS + " "
+				+ this.notaFOLA + " " + this.notaLMSGI + " " + this.notaPROG + " " + this.notaSSII;
+		return pers;
+	}
 }
